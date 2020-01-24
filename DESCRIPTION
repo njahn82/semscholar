@@ -1,0 +1,34 @@
+Package: semscholar
+Type: Package
+Title: Interface to the Semantic Scholar search engine
+Version: 0.1.0
+Authors@R: c(
+    person("Najko", "Jahn", role = c("aut", "cre"), email = "najko.jahn@gmail.com")
+    )
+Description: This web client wraps the Semantic Scholar RESTful API 
+    <https://api.semanticscholar.org/>. Semantic Scholar is a free, nonprofit, 
+    academic search engine from the Allen Institute for AI. The client supports 
+    search for author profiles and mined metadata of scholarly works including 
+    citations, references and topics.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    tidyr,
+    purrr,
+    jsonlite,
+    httr,
+    janitor,
+    plyr,
+    tibble,
+    rlang
+Suggests: 
+    testthat,
+    roxygen2 (>= 6.0.1),
+    knitr,
+    covr,
+    rmarkdown,
+    lintr
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr

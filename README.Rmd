@@ -1,0 +1,73 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# semscholar: interfacing Semantic Scholar search engine with R
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This web client wraps the Semantic Scholar RESTful API. 
+[Semantic Scholar](https://www.semanticscholar.org/) is a free, 
+nonprofit, academic search engine from the 
+[Allen Institute for AI](https://allenai.org/). 
+
+The client supports search for author profiles and mined metadata 
+of scholarly works including citations, references and topics.
+    
+API Docs: <https://api.semanticscholar.org/>
+
+## Installation
+
+You can install the develpment version of semscholar from GitHub:
+
+``` r
+remotes::install_github("njahn82/semscholar")
+```
+
+## Paper Lookup
+
+```{r}
+library(semscholar)
+s2_papers(
+  c("10.1093/nar/gkr1047", 
+             "14a22b032524573d15593abed170f9f76359e581", 
+             "10.7717/peerj.2323", 
+             "arXiv:0711.0914")
+  )
+```
+
+Authors
+
+```{r}
+s2_papers("14a22b032524573d15593abed170f9f76359e581")$authors
+```
+
+Citations
+
+```{r}
+s2_papers("14a22b032524573d15593abed170f9f76359e581")$citations
+```
+
+References
+
+```{r}
+s2_papers("14a22b032524573d15593abed170f9f76359e581")$references
+```
+
+Topics
+
+```{r}
+s2_papers("14a22b032524573d15593abed170f9f76359e581")$topics
+```
