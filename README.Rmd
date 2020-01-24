@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # semscholar: interfacing Semantic Scholar search engine with R
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/njahn82/semscholar.svg?branch=master)](https://travis-ci.org/njahn82/semscholar)
 <!-- badges: end -->
 
 This web client wraps the Semantic Scholar RESTful API. 
