@@ -16,6 +16,28 @@ Options are "none", "text", "tk", "win", and "time".
 See \code{\link[plyr]{create_progress_bar}} for details
 of each. By default, no progress bar is displayed.}
 }
+\value{
+The result is a tibble with each row representing a publication.
+  Here are the returned columns and descriptions according to the API docu:
+
+\tabular{ll}{
+ \code{abstract} \tab Extracted abstract of the paper. \cr
+ \code{arxiv_id} \tab arXiv ID \cr
+ \code{authors}  \tab List-column of detailed author infos \cr
+ \code{citation_velocity} \tab A weighted average of the publication's citations
+ for the last 3 years and fewer for publications published in the last year
+ or two, which indicates how popular and lasting the publication is. \cr
+ \code{citations} \tab lList-column  of Semantic Scholar papers which cited this paper. \cr
+ \code{doi} \tab Digital Object Identifier \cr
+ \code{influential_citation_count} \tab Sum of the highly influential citations \cr
+ \code{paper_id} \tab Semantic Scholar paper ID \cr
+ \code{reference} \tab List-column of Semantic Scholar papers the paper cited \cr
+ \code{title} \tab Article Title \cr
+ \code{topics} \tab List-column of the fields of study this paper addresses. \cr
+ \code{venue} \tab Extracted publication venue for this paper. \cr
+ \code{year} \tab Publication year \cr
+ }
+}
 \description{
 Obtain information about individual scholarly articles indexed in Semantic
 Scholar. Please play nice with the API. If you need to access
@@ -25,11 +47,13 @@ For more info see \url{https://api.semanticscholar.org/corpus/}.
 \examples{
 \dontrun{
 get_papers("10.1186/1471-2164-11-245")
+
 # call many papers with different id types at once
 get_papers(ids = c("10.1093/nar/gkr1047",
-"bbc25a6a340365832d4d27f683646c39f2661c88",
-"10.7717/peerj.2323",
-"arXiv:0711.0914"))
+  "bbc25a6a340365832d4d27f683646c39f2661c88",
+  "10.7717/peerj.2323",
+  "arXiv:0711.0914")
+  )
 }
 
 }

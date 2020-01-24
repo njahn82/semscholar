@@ -17,6 +17,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/njahn82/semscholar.svg?branch=master)](https://travis-ci.org/njahn82/semscholar)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/njahn82/semscholar?branch=master&svg=true)](https://ci.appveyor.com/project/njahn82/semscholar)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 This web client wraps the Semantic Scholar RESTful API. 

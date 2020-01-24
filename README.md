@@ -80,12 +80,12 @@ s2_papers("14a22b032524573d15593abed170f9f76359e581")$citations
 #>  2 NA               <df[,3] [9 × 3]> 10.1105/tpc.… <chr [0]>       
 #>  3 NA               <df[,3] [9 × 3]> 10.1007/s107… <chr [1]>       
 #>  4 NA               <df[,3] [8 × 3]> 10.1111/tpj.… <chr [1]>       
-#>  5 NA               <df[,3] [8 × 3]> 10.1111/tpj.… <chr [1]>       
-#>  6 NA               <df[,3] [11 × 3… <NA>          <chr [1]>       
+#>  5 NA               <df[,3] [11 × 3… <NA>          <chr [1]>       
+#>  6 NA               <df[,3] [8 × 3]> 10.1111/tpj.… <chr [1]>       
 #>  7 NA               <df[,3] [14 × 3… 10.1016/j.cu… <chr [0]>       
 #>  8 NA               <df[,3] [9 × 3]> 10.1111/tpj.… <chr [1]>       
 #>  9 NA               <df[,3] [5 × 3]> 10.1016/j.pl… <chr [1]>       
-#> 10 NA               <df[,3] [7 × 3]> 10.1038/s415… <chr [0]>       
+#> 10 NA               <df[,3] [6 × 3]> 10.1104/pp.1… <chr [1]>       
 #> # … with 133 more rows, and 6 more variables:
 #> #   citations_is_influential <lgl>, citations_paper_id <chr>,
 #> #   citations_title <chr>, citations_url <chr>, citations_venue <chr>,
@@ -102,10 +102,10 @@ s2_papers("14a22b032524573d15593abed170f9f76359e581")$references
 #>    <lgl>            <list>           <chr>          <list>          
 #>  1 NA               <df[,3] [12 × 3… 10.1104/pp.10… <chr [1]>       
 #>  2 NA               <df[,3] [4 × 3]> 10.1093/nar/g… <chr [3]>       
-#>  3 NA               <df[,3] [6 × 3]> 10.1023/B:PLA… <chr [1]>       
-#>  4 NA               <df[,3] [7 × 3]> 10.1093/nar/2… <chr [0]>       
-#>  5 NA               <df[,3] [16 × 3… 10.1093/nar/g… <chr [1]>       
-#>  6 NA               <df[,3] [7 × 3]> 10.1093/nar/g… <chr [1]>       
+#>  3 NA               <df[,3] [16 × 3… 10.1093/nar/g… <chr [1]>       
+#>  4 NA               <df[,3] [6 × 3]> 10.1023/B:PLA… <chr [1]>       
+#>  5 NA               <df[,3] [7 × 3]> 10.1093/nar/g… <chr [1]>       
+#>  6 NA               <df[,3] [7 × 3]> 10.1093/nar/2… <chr [0]>       
 #>  7 NA               <df[,3] [3 × 3]> 10.1093/nar/2… <chr [1]>       
 #>  8 NA               <df[,3] [2 × 3]> 10.1111/j.136… <chr [1]>       
 #>  9 NA               <df[,3] [6 × 3]> 10.2144/03356… <chr [1]>       

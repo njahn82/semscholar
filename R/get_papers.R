@@ -16,7 +16,6 @@
 #'
 #' @return The result is a tibble with each row representing a publication.
 #'   Here are the returned columns and descriptions according to the API docu:
-#'   # nolint start
 #'
 #' \tabular{ll}{
 #'  \code{abstract} \tab Extracted abstract of the paper. \cr
@@ -34,6 +33,7 @@
 #'  \code{topics} \tab List-column of the fields of study this paper addresses. \cr
 #'  \code{venue} \tab Extracted publication venue for this paper. \cr
 #'  \code{year} \tab Publication year \cr
+#'  }
 #'
 #' @importFrom plyr llply
 #' @importFrom dplyr bind_rows
@@ -42,11 +42,13 @@
 #'
 #' @examples \dontrun{
 #' get_papers("10.1186/1471-2164-11-245")
+#'
 #' # call many papers with different id types at once
 #' get_papers(ids = c("10.1093/nar/gkr1047",
-#' "bbc25a6a340365832d4d27f683646c39f2661c88",
-#' "10.7717/peerj.2323",
-#' "arXiv:0711.0914"))
+#'   "bbc25a6a340365832d4d27f683646c39f2661c88",
+#'   "10.7717/peerj.2323",
+#'   "arXiv:0711.0914")
+#'   )
 #' }
 #'
 s2_papers <- function(ids = NULL, .progress = "none") {
