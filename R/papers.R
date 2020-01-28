@@ -1,4 +1,4 @@
-#' Lookup metadata about an article in Semantic Scholar
+#' LSemantic Scholar Article Lookup
 #'
 #' Obtain information about individual scholarly articles indexed in Semantic
 #' Scholar. Please play nice with the API. If you need to access
@@ -31,6 +31,7 @@
 #'  \code{reference} \tab List-column of Semantic Scholar papers the paper cited \cr
 #'  \code{title} \tab Article Title \cr
 #'  \code{topics} \tab List-column of the fields of study this paper addresses. \cr
+#'  \code{url} \tab Link article's landing page \cr
 #'  \code{venue} \tab Extracted publication venue for this paper. \cr
 #'  \code{year} \tab Publication year \cr
 #'  }
@@ -41,10 +42,10 @@
 #' @export
 #'
 #' @examples \dontrun{
-#' get_papers("10.1186/1471-2164-11-245")
+#' s2_papers("10.1186/1471-2164-11-245")
 #'
 #' # call many papers with different id types at once
-#' get_papers(ids = c("10.1093/nar/gkr1047",
+#' s2_papers(ids = c("10.1093/nar/gkr1047",
 #'   "bbc25a6a340365832d4d27f683646c39f2661c88",
 #'   "10.7717/peerj.2323",
 #'   "arXiv:0711.0914")
@@ -53,7 +54,7 @@
 #'
 s2_papers <- function(ids = NULL, .progress = "none") {
   # input validation
-  stopifnot(!is.null(ids))
+  stopifnot(!is.null(ids), is.character(ids))
   # remove empty characters
   if (any(ids %in% "")) {
     ids <- ids[ids != ""]
@@ -79,50 +80,6 @@ s2_paper_md <- function(id) {
     return(NULL)
   } else {
     parse_s2_paper_md(req)
-  }
-}
-
-# API calls ---------------------------------------------------------------
-
-#' Interface to the Semantic Scholar API
-#'
-#' @param id character vector, representing a publication record id
-#' @param method character vector, supports "paper" to get publication records
-#'
-#' @importFrom httr modify_url RETRY http_type
-#' @importFrom httr modify_url RETRY http_type
-#' @importFrom jsonlite fromJSON
-#'
-#' @noRd
-
-call_s2 <- function(id, method) {
-  u <- httr::modify_url(
-    semscholar_baseurl(),
-    path = c(semscholar_api_version(), method, trimws(id))
-  )
-  # Call Unpaywall Data API
-  resp <- httr::RETRY("GET", u, ua)
-
-  # test for valid json
-  if (httr::http_type(resp) != "application/json") {
-    stop(
-      sprintf(
-        "Oops, API did not return json after calling '%s':
-        check your query - or semscholar_api_version may experience problems",
-        id
-      ),
-      call. = FALSE
-    )
-  }
-
-  out <- jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"),
-                            flatten = TRUE)
-  if(length(out$error) != 0) {
-    warning(
-      paste("Paper with ID", id, "was not found"), call. = FALSE)
-    NULL
-  } else {
-    out
   }
 }
 

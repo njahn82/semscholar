@@ -74,3 +74,12 @@ Topics
 ```{r}
 s2_papers("14a22b032524573d15593abed170f9f76359e581")$topics
 ```
+
+## Author Lookup
+
+Provide one or many S2 Author IDs
+
+```{r}
+s2_authors(c("2204561", "144128278", "49930593"))
+```
+

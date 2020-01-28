@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_papers.R
 \name{s2_papers}
 \alias{s2_papers}
-\title{Lookup metadata about an article in Semantic Scholar}
+\title{LSemantic Scholar Article Lookup}
 \usage{
 s2_papers(ids = NULL, .progress = "none")
 }
@@ -34,6 +34,7 @@ The result is a tibble with each row representing a publication.
  \code{reference} \tab List-column of Semantic Scholar papers the paper cited \cr
  \code{title} \tab Article Title \cr
  \code{topics} \tab List-column of the fields of study this paper addresses. \cr
+ \code{url} \tab Link article's landing page \cr
  \code{venue} \tab Extracted publication venue for this paper. \cr
  \code{year} \tab Publication year \cr
  }
@@ -46,10 +47,10 @@ For more info see \url{https://api.semanticscholar.org/corpus/}.
 }
 \examples{
 \dontrun{
-get_papers("10.1186/1471-2164-11-245")
+s2_papers("10.1186/1471-2164-11-245")
 
 # call many papers with different id types at once
-get_papers(ids = c("10.1093/nar/gkr1047",
+s2_papers(ids = c("10.1093/nar/gkr1047",
   "bbc25a6a340365832d4d27f683646c39f2661c88",
   "10.7717/peerj.2323",
   "arXiv:0711.0914")

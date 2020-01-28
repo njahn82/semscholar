@@ -78,14 +78,14 @@ s2_papers("14a22b032524573d15593abed170f9f76359e581")$citations
 #>    <lgl>            <list>           <chr>         <list>          
 #>  1 NA               <df[,3] [1 × 3]> <NA>          <chr [0]>       
 #>  2 NA               <df[,3] [9 × 3]> 10.1105/tpc.… <chr [0]>       
-#>  3 NA               <df[,3] [9 × 3]> 10.1007/s107… <chr [1]>       
-#>  4 NA               <df[,3] [8 × 3]> 10.1111/tpj.… <chr [1]>       
-#>  5 NA               <df[,3] [11 × 3… <NA>          <chr [1]>       
-#>  6 NA               <df[,3] [8 × 3]> 10.1111/tpj.… <chr [1]>       
-#>  7 NA               <df[,3] [14 × 3… 10.1016/j.cu… <chr [0]>       
-#>  8 NA               <df[,3] [9 × 3]> 10.1111/tpj.… <chr [1]>       
-#>  9 NA               <df[,3] [5 × 3]> 10.1016/j.pl… <chr [1]>       
-#> 10 NA               <df[,3] [6 × 3]> 10.1104/pp.1… <chr [1]>       
+#>  3 NA               <df[,3] [8 × 3]> 10.1111/tpj.… <chr [1]>       
+#>  4 NA               <df[,3] [9 × 3]> 10.1007/s107… <chr [1]>       
+#>  5 NA               <df[,3] [9 × 3]> 10.1111/tpj.… <chr [1]>       
+#>  6 NA               <df[,3] [5 × 3]> 10.1016/j.pl… <chr [1]>       
+#>  7 NA               <df[,3] [7 × 3]> 10.1038/s415… <chr [0]>       
+#>  8 NA               <df[,3] [6 × 3]> 10.1104/pp.1… <chr [1]>       
+#>  9 NA               <df[,3] [11 × 3… <NA>          <chr [1]>       
+#> 10 NA               <df[,3] [14 × 3… 10.1016/j.cu… <chr [0]>       
 #> # … with 133 more rows, and 6 more variables:
 #> #   citations_is_influential <lgl>, citations_paper_id <chr>,
 #> #   citations_title <chr>, citations_url <chr>, citations_venue <chr>,
@@ -100,13 +100,13 @@ s2_papers("14a22b032524573d15593abed170f9f76359e581")$references
 #> # A tibble: 11 x 10
 #>    references_arxi… references_auth… references_doi references_inte…
 #>    <lgl>            <list>           <chr>          <list>          
-#>  1 NA               <df[,3] [12 × 3… 10.1104/pp.10… <chr [1]>       
-#>  2 NA               <df[,3] [4 × 3]> 10.1093/nar/g… <chr [3]>       
+#>  1 NA               <df[,3] [4 × 3]> 10.1093/nar/g… <chr [3]>       
+#>  2 NA               <df[,3] [12 × 3… 10.1104/pp.10… <chr [1]>       
 #>  3 NA               <df[,3] [16 × 3… 10.1093/nar/g… <chr [1]>       
 #>  4 NA               <df[,3] [6 × 3]> 10.1023/B:PLA… <chr [1]>       
-#>  5 NA               <df[,3] [7 × 3]> 10.1093/nar/g… <chr [1]>       
+#>  5 NA               <df[,3] [3 × 3]> 10.1093/nar/2… <chr [1]>       
 #>  6 NA               <df[,3] [7 × 3]> 10.1093/nar/2… <chr [0]>       
-#>  7 NA               <df[,3] [3 × 3]> 10.1093/nar/2… <chr [1]>       
+#>  7 NA               <df[,3] [7 × 3]> 10.1093/nar/g… <chr [1]>       
 #>  8 NA               <df[,3] [2 × 3]> 10.1111/j.136… <chr [1]>       
 #>  9 NA               <df[,3] [6 × 3]> 10.2144/03356… <chr [1]>       
 #> 10 NA               <df[,3] [39 × 3… 10.1126/scien… <chr [2]>       
@@ -137,4 +137,19 @@ s2_papers("14a22b032524573d15593abed170f9f76359e581")$topics
 #> 11 Collections (publicatio… 23835    https://www.semanticscholar.org/topic…
 #> 12 Nuclear Proteins         252416   https://www.semanticscholar.org/topic…
 #> 13 Insertion Mutation       999582   https://www.semanticscholar.org/topic…
+```
+
+## Author Lookup
+
+Provide one or many S2 Author IDs to obtain a personal publication
+profile
+
+``` r
+s2_authors(c("2204561", "144128278", "49930593"))
+#> # A tibble: 3 x 6
+#>   aliases  author_id author_name  author_url      influential_cita… papers 
+#>   <list>   <chr>     <chr>        <chr>                       <int> <list> 
+#> 1 <chr [2… 2204561   Bernd Weiss… https://www.se…              1490 <df[,4…
+#> 2 <chr [7… 144128278 György Buzs… https://www.se…              3348 <df[,4…
+#> 3 <chr [1… 49930593  Maëlle Salm… https://www.se…                 4 <df[,4…
 ```
