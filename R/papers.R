@@ -150,7 +150,7 @@ parse_s2_topics <- function(topics) {
   if (!is.list(topics))
     stop("Something went wrong")
   if (length(topics) == 0)
-    tibble::tibble()
+    return(tibble::tibble())
   colnames(topics) <- c("topic", "topic_id", "topic_url")
   return(tibble::as_tibble(topics))
 }
