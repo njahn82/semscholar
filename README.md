@@ -5,12 +5,11 @@
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.org/njahn82/semscholar.svg?branch=master)](https://travis-ci.org/njahn82/semscholar)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/njahn82/semscholar?branch=master&svg=true)](https://ci.appveyor.com/project/njahn82/semscholar)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![R-CMD-check](https://github.com/njahn82/semscholar/workflows/R-CMD-check/badge.svg)](https://github.com/njahn82/semscholar/actions)
 <!-- badges: end -->
 
 This web client wraps the Semantic Scholar RESTful API. [Semantic
@@ -42,15 +41,14 @@ s2_papers(
              "arXiv:0711.0914")
   )
 #> # A tibble: 4 x 14
-#>   abstract arxiv_id authors citation_veloci… citations doi  
-#>   <chr>    <chr>    <list>             <int> <list>    <chr>
-#> 1 T-DNA i… <NA>     <tibbl…               15 <tibble … 10.1…
-#> 2 T-DNA i… <NA>     <tibbl…               15 <tibble … 10.1…
-#> 3 Publica… <NA>     <tibbl…                0 <tibble … 10.7…
-#> 4 Abstrac… 0711.09… <tibbl…               10 <tibble … 10.1…
-#> # … with 8 more variables: influential_citation_count <int>,
-#> #   paper_id <chr>, references <list>, title <chr>, topics <list>,
-#> #   url <chr>, venue <chr>, year <int>
+#>   abstract   arxiv_id  authors citation_veloci… citations doi   influential_cit…
+#>   <chr>      <chr>     <list>             <int> <list>    <chr>            <int>
+#> 1 T-DNA ins… <NA>      <tibbl…               31 <tibble … 10.1…               28
+#> 2 T-DNA ins… <NA>      <tibbl…               31 <tibble … 10.1…               28
+#> 3 Publicati… <NA>      <tibbl…                8 <tibble … 10.7…                3
+#> 4 Abstract … 0711.0914 <tibbl…               16 <tibble … 10.1…               12
+#> # … with 7 more variables: paper_id <chr>, references <list>, title <chr>,
+#> #   topics <list>, url <chr>, venue <chr>, year <int>
 ```
 
 Authors
@@ -59,13 +57,13 @@ Authors
 s2_papers("14a22b032524573d15593abed170f9f76359e581")$authors
 #> [[1]]
 #> # A tibble: 5 x 3
-#>   author_id author_name        author_url                                  
-#>   <chr>     <chr>              <chr>                                       
-#> 1 31697714  Nils Kleinboelting https://www.semanticscholar.org/author/3169…
-#> 2 1922491   Gunnar Huep        https://www.semanticscholar.org/author/1922…
-#> 3 3096048   Andreas Kloetgen   https://www.semanticscholar.org/author/3096…
-#> 4 3236938   Prisca Viehoever   https://www.semanticscholar.org/author/3236…
-#> 5 2204561   Bernd Weisshaar    https://www.semanticscholar.org/author/2204…
+#>   author_id  author_name        author_url                                      
+#>   <chr>      <chr>              <chr>                                           
+#> 1 2099949665 Nils Kleinboelting https://www.semanticscholar.org/author/20999496…
+#> 2 1922491    G. Huep            https://www.semanticscholar.org/author/1922491  
+#> 3 3096048    A. Kloetgen        https://www.semanticscholar.org/author/3096048  
+#> 4 2092957728 Prisca Viehoever   https://www.semanticscholar.org/author/20929577…
+#> 5 2204561    B. Weisshaar       https://www.semanticscholar.org/author/2204561
 ```
 
 Citations
@@ -73,23 +71,22 @@ Citations
 ``` r
 s2_papers("14a22b032524573d15593abed170f9f76359e581")$citations
 #> [[1]]
-#> # A tibble: 143 x 10
-#>    citations_arxiv… citations_autho… citations_doi citations_intent
-#>    <lgl>            <list>           <chr>         <list>          
-#>  1 NA               <df[,3] [1 × 3]> <NA>          <chr [0]>       
-#>  2 NA               <df[,3] [9 × 3]> 10.1105/tpc.… <chr [0]>       
-#>  3 NA               <df[,3] [8 × 3]> 10.1111/tpj.… <chr [1]>       
-#>  4 NA               <df[,3] [9 × 3]> 10.1007/s107… <chr [1]>       
-#>  5 NA               <df[,3] [9 × 3]> 10.1111/tpj.… <chr [1]>       
-#>  6 NA               <df[,3] [5 × 3]> 10.1016/j.pl… <chr [1]>       
-#>  7 NA               <df[,3] [7 × 3]> 10.1038/s415… <chr [0]>       
-#>  8 NA               <df[,3] [6 × 3]> 10.1104/pp.1… <chr [1]>       
-#>  9 NA               <df[,3] [11 × 3… <NA>          <chr [1]>       
-#> 10 NA               <df[,3] [14 × 3… 10.1016/j.cu… <chr [0]>       
-#> # … with 133 more rows, and 6 more variables:
-#> #   citations_is_influential <lgl>, citations_paper_id <chr>,
-#> #   citations_title <chr>, citations_url <chr>, citations_venue <chr>,
-#> #   citations_year <int>
+#> # A tibble: 283 x 10
+#>    citations_arxiv_id citations_authors citations_doi           citations_intent
+#>    <lgl>              <list>            <chr>                   <list>          
+#>  1 NA                 <df [3 × 2]>      10.1101/2021.01.06.425… <chr [1]>       
+#>  2 NA                 <df [5 × 2]>      10.1186/s12870-021-030… <chr [0]>       
+#>  3 NA                 <df [3 × 2]>      10.1101/2021.03.03.433… <chr [1]>       
+#>  4 NA                 <df [5 × 2]>      10.3389/fpls.2021.6286… <chr [0]>       
+#>  5 NA                 <df [5 × 2]>      10.1101/2021.06.03.446… <chr [0]>       
+#>  6 NA                 <df [5 × 2]>      10.1101/2021.02.17.431… <chr [0]>       
+#>  7 NA                 <df [12 × 2]>     10.1038/s41467-020-205… <chr [0]>       
+#>  8 NA                 <df [3 × 2]>      10.3389/fpls.2021.6524… <chr [1]>       
+#>  9 NA                 <df [13 × 2]>     10.1101/2021.01.28.428… <chr [1]>       
+#> 10 NA                 <df [12 × 2]>     10.1101/2020.04.02.021… <chr [1]>       
+#> # … with 273 more rows, and 6 more variables: citations_is_influential <lgl>,
+#> #   citations_paper_id <chr>, citations_title <chr>, citations_url <chr>,
+#> #   citations_venue <chr>, citations_year <int>
 ```
 
 References
@@ -97,23 +94,25 @@ References
 ``` r
 s2_papers("14a22b032524573d15593abed170f9f76359e581")$references
 #> [[1]]
-#> # A tibble: 11 x 10
-#>    references_arxi… references_auth… references_doi references_inte…
-#>    <lgl>            <list>           <chr>          <list>          
-#>  1 NA               <df[,3] [4 × 3]> 10.1093/nar/g… <chr [3]>       
-#>  2 NA               <df[,3] [12 × 3… 10.1104/pp.10… <chr [1]>       
-#>  3 NA               <df[,3] [16 × 3… 10.1093/nar/g… <chr [1]>       
-#>  4 NA               <df[,3] [6 × 3]> 10.1023/B:PLA… <chr [1]>       
-#>  5 NA               <df[,3] [3 × 3]> 10.1093/nar/2… <chr [1]>       
-#>  6 NA               <df[,3] [7 × 3]> 10.1093/nar/2… <chr [0]>       
-#>  7 NA               <df[,3] [7 × 3]> 10.1093/nar/g… <chr [1]>       
-#>  8 NA               <df[,3] [2 × 3]> 10.1111/j.136… <chr [1]>       
-#>  9 NA               <df[,3] [6 × 3]> 10.2144/03356… <chr [1]>       
-#> 10 NA               <df[,3] [39 × 3… 10.1126/scien… <chr [2]>       
-#> 11 NA               <df[,3] [5 × 3]> 10.1093/bioin… <chr [1]>       
+#> # A tibble: 13 x 10
+#>    references_arxiv_… references_autho… references_doi          references_inte…
+#>    <lgl>              <list>            <chr>                   <list>          
+#>  1 NA                 <df [4 × 2]>      10.1093/nar/gkl753      <chr [3]>       
+#>  2 NA                 <df [1 × 2]>      10.1038/35048692        <chr [0]>       
+#>  3 NA                 <df [2 × 2]>      10.1111/j.1365-313X.20… <chr [1]>       
+#>  4 NA                 <df [7 × 2]>      10.1093/NAR/GKH134      <chr [1]>       
+#>  5 NA                 <df [3 × 2]>      10.1385/1-59259-192-2:… <chr [0]>       
+#>  6 NA                 <df [3 × 2]>      10.1093/NAR/23.24.4992  <chr [1]>       
+#>  7 NA                 <df [1 × 2]>      <NA>                    <chr [0]>       
+#>  8 NA                 <df [12 × 2]>     10.1104/pp.103.022251   <chr [1]>       
+#>  9 NA                 <df [5 × 2]>      10.1093/bioinformatics… <chr [0]>       
+#> 10 NA                 <df [39 × 2]>     10.1126/SCIENCE.1086391 <chr [2]>       
+#> 11 NA                 <df [6 × 2]>      10.2144/03356ST01       <chr [0]>       
+#> 12 NA                 <df [6 × 2]>      10.1023/B:PLAN.0000009… <chr [1]>       
+#> 13 NA                 <df [16 × 2]>     10.1093/nar/gkm965      <chr [1]>       
 #> # … with 6 more variables: references_is_influential <lgl>,
-#> #   references_paper_id <chr>, references_title <chr>,
-#> #   references_url <chr>, references_venue <chr>, references_year <int>
+#> #   references_paper_id <chr>, references_title <chr>, references_url <chr>,
+#> #   references_venue <chr>, references_year <int>
 ```
 
 Topics
@@ -122,34 +121,33 @@ Topics
 s2_papers("14a22b032524573d15593abed170f9f76359e581")$topics
 #> [[1]]
 #> # A tibble: 13 x 3
-#>    topic                    topic_id topic_url                             
-#>    <chr>                    <chr>    <chr>                                 
-#>  1 KickassTorrents          2106063  https://www.semanticscholar.org/topic…
-#>  2 Gabi software            1885631  https://www.semanticscholar.org/topic…
-#>  3 Index                    35133    https://www.semanticscholar.org/topic…
-#>  4 Clinical act of inserti… 2803     https://www.semanticscholar.org/topic…
-#>  5 KAT 250                  7277553  https://www.semanticscholar.org/topic…
-#>  6 Reverse Genetics         21005    https://www.semanticscholar.org/topic…
-#>  7 Annotation               37540    https://www.semanticscholar.org/topic…
-#>  8 Silo (dataset)           130506   https://www.semanticscholar.org/topic…
-#>  9 fostriecin               5652     https://www.semanticscholar.org/topic…
-#> 10 DNA Sequence - Cloning … 653134   https://www.semanticscholar.org/topic…
-#> 11 Collections (publicatio… 23835    https://www.semanticscholar.org/topic…
-#> 12 Nuclear Proteins         252416   https://www.semanticscholar.org/topic…
-#> 13 Insertion Mutation       999582   https://www.semanticscholar.org/topic…
+#>    topic                      topic_id topic_url                                
+#>    <chr>                      <chr>    <chr>                                    
+#>  1 KickassTorrents            2106063  https://www.semanticscholar.org/topic/21…
+#>  2 Gabi software              1885631  https://www.semanticscholar.org/topic/18…
+#>  3 Index                      35133    https://www.semanticscholar.org/topic/35…
+#>  4 Clinical act of insertion  2803     https://www.semanticscholar.org/topic/28…
+#>  5 KAT 250                    7277553  https://www.semanticscholar.org/topic/72…
+#>  6 Reverse Genetics           21005    https://www.semanticscholar.org/topic/21…
+#>  7 Annotation                 37540    https://www.semanticscholar.org/topic/37…
+#>  8 Silo (dataset)             130506   https://www.semanticscholar.org/topic/13…
+#>  9 fostriecin                 5652     https://www.semanticscholar.org/topic/56…
+#> 10 DNA Sequence - Cloning Si… 653134   https://www.semanticscholar.org/topic/65…
+#> 11 Collections (publication)  23835    https://www.semanticscholar.org/topic/23…
+#> 12 Nuclear Proteins           252416   https://www.semanticscholar.org/topic/25…
+#> 13 Insertion Mutation         999582   https://www.semanticscholar.org/topic/99…
 ```
 
 ## Author Lookup
 
-Provide one or many S2 Author IDs to obtain a personal publication
-profile
+Provide one or many S2 Author IDs
 
 ``` r
 s2_authors(c("2204561", "144128278", "49930593"))
 #> # A tibble: 3 x 6
-#>   aliases  author_id author_name  author_url      influential_cita… papers 
-#>   <list>   <chr>     <chr>        <chr>                       <int> <list> 
-#> 1 <chr [2… 2204561   Bernd Weiss… https://www.se…              1490 <df[,4…
-#> 2 <chr [7… 144128278 György Buzs… https://www.se…              3348 <df[,4…
-#> 3 <chr [1… 49930593  Maëlle Salm… https://www.se…                 4 <df[,4…
+#>   aliases  author_id author_name  author_url          influential_citat… papers 
+#>   <list>   <chr>     <chr>        <chr>                            <int> <list> 
+#> 1 <chr [3… 2204561   B. Weisshaar https://www.semant…               1891 <df [2…
+#> 2 <chr [1… 144128278 G. Buzsáki   https://www.semant…               4088 <df [4…
+#> 3 <chr [2… 49930593  M. Salmon    https://www.semant…                  5 <df [3…
 ```
