@@ -35,7 +35,7 @@ test_that("s2_papers returns", {
   expect_is(b, "tbl_df")
   expect_is(c, "tbl_df")
   expect_is(d, "tbl_df")
-  expect_is(my_s2_df$authors, "list")
+  expect_is(d$authors, "list")
 
   expect_warning(s2_papers("/ng.3260"))
 })
