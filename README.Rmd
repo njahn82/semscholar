@@ -16,9 +16,9 @@ knitr::opts_chunk$set(
 # semscholar: interfacing Semantic Scholar search engine with R
 
 <!-- badges: start -->
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/njahn82/semscholar?branch=master&svg=true)](https://ci.appveyor.com/project/njahn82/semscholar)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R-CMD-check](https://github.com/njahn82/semscholar/workflows/R-CMD-check/badge.svg)](https://github.com/njahn82/semscholar/actions)
+[![Codecov test coverage](https://codecov.io/gh/njahn82/semscholar/branch/master/graph/badge.svg)](https://codecov.io/gh/njahn82/semscholar?branch=master)
 <!-- badges: end -->
 
 This web client wraps the Semantic Scholar RESTful API. 
