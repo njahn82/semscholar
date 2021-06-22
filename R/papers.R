@@ -169,7 +169,7 @@ parse_s2_authors <- function(authors) {
   if (!is.list(authors))
     stop("Something went wrong")
   if (length(authors) == 0)
-    tibble::tibble()
+    return(tibble::tibble())
   authors <-
     dplyr::rename(
       authors,
@@ -177,5 +177,5 @@ parse_s2_authors <- function(authors) {
       author_name = .data$name,
       author_url = .data$url
     )
-  tibble::as_tibble(authors)
+  return(tibble::as_tibble(authors))
 }
